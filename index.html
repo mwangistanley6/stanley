@@ -124,9 +124,20 @@
             width: 100%;
             height: 200px;
             background: #ddd;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .project-image img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            object-position: center;
+            object-fit: contain;
         }
 
         .project-content {
@@ -222,6 +233,21 @@
                 font-size: 1.1rem;
             }
         }
+         /* Add new style for resume download button */
+         .resume-download {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .resume-download:hover {
+            background-color: var(--secondary-color);
+        }
     </style>
 </head>
 <body>
@@ -254,7 +280,7 @@
                 </div>
                 <div class="project-content">
                     <h3>Merry-Go-Round-App</h3>
-                    <p>This is an application developed using kotlin and Jetpack compose</p>
+                    <p>A modern mobile application designed to manage and streamline group savings and loan activities for members of the Camp Nou savings group. This Android app is built with Jetpack Compose and Firebase, offering a seamless and secure platform for managing group finances.</p>
                 </div>
             </div>
             <!-- Add more project cards as needed -->
@@ -264,9 +290,10 @@
     <section id="resume" class="resume">
         <div class="resume-content">
             <h2 class="section-title">Resume & Experience</h2>
-            <!-- Add your resume content here -->
             <div style="text-align: center;">
-                <embed src="resume/Stanley_Resume.pdf" type="application/pdf" width="100%" height="600px" />
+                <a href="resume/Stanley_Resume.pdf" class="resume-download" download>
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
             </div>
         </div>
     </section>
