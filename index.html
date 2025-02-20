@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stanley Mwangi - Portfolio</title>
-  <!-- Font Awesome -->
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
@@ -13,7 +13,7 @@
       --text-color: #1f2937;
       --light-bg: #f3f4f6;
     }
-    /* Smooth scrolling for all anchor links */
+    /* Smooth scrolling */
     html {
       scroll-behavior: smooth;
     }
@@ -59,24 +59,18 @@
       color: var(--text-color);
       font-weight: 500;
       transition: color 0.3s;
-      position: relative; /* For underline effect */
     }
     .nav-links a:hover {
       color: var(--primary-color);
     }
-    /* Underline effect on hover */
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--primary-color);
-      transition: width 0.3s;
-    }
-    .nav-links a:hover::after {
-      width: 100%;
+    /* Hamburger Menu (hidden by default) */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-color);
     }
     /* Hero Section */
     .hero {
@@ -88,10 +82,7 @@
       text-align: center;
       color: white;
       padding: 0 2rem;
-      position: relative; /* For scroll indicator */
-    }
-    .hero-content {
-      animation: fadeIn 1s ease-out; /* Fade-in animation */
+      position: relative;
     }
     .hero-content h1 {
       font-size: 3rem;
@@ -100,22 +91,6 @@
     .hero-content p {
       font-size: 1.5rem;
       margin-bottom: 2rem;
-    }
-    /* Typewriter effect for subtitle */
-    .typewriter {
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 2px solid white;
-      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
-    }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink {
-      from, to { border-color: transparent }
-      50% { border-color: white }
     }
     .hero-content button {
       background-color: white;
@@ -131,7 +106,7 @@
       transform: scale(1.05);
       background-color: #f0f0f0;
     }
-    /* Scroll indicator */
+    /* Scroll Indicator */
     .scroll-indicator {
       position: absolute;
       bottom: 2rem;
@@ -172,7 +147,7 @@
       flex-direction: column;
     }
     .project-card:hover {
-      transform: translateY(-5px) scale(1.02); /* Enhanced hover effect */
+      transform: translateY(-5px) scale(1.02);
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
     .project-image {
@@ -223,7 +198,7 @@
       border-radius: 999px;
       font-size: 0.875rem;
     }
-    /* Image Modal Styles */
+    /* Image Modal */
     .modal {
       display: none;
       position: fixed;
@@ -245,6 +220,15 @@
       object-fit: contain;
       cursor: zoom-out;
       border-radius: 8px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      z-index: 2100;
     }
     /* Resume Section */
     .resume {
@@ -291,13 +275,6 @@
       border: 1px solid #ddd;
       border-radius: 4px;
       font-family: inherit;
-      transition: border-color 0.3s; /* Smooth transition */
-    }
-    /* Focus styles for better feedback */
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
     }
     button {
       background-color: var(--primary-color);
@@ -311,12 +288,6 @@
     }
     button:hover {
       background-color: var(--secondary-color);
-    }
-    input:invalid, textarea:invalid {
-      border-color: #ff4444;
-    }
-    input:valid, textarea:valid {
-      border-color: #00cc00;
     }
     /* Footer */
     footer {
@@ -340,28 +311,66 @@
       color: var(--primary-color);
       transform: translateY(-2px);
     }
-    /* Responsive Design */
+    /* Mobile Adjustments */
     @media (max-width: 768px) {
-      .nav-links {
-        display: none; /* Consider adding a hamburger menu */
+      /* Navigation */
+      .hamburger {
+        display: block;
       }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 1rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-links a {
+        padding: 0.5rem 0;
+      }
+      /* Hero */
       .hero-content h1 {
         font-size: 2rem;
       }
       .hero-content p {
         font-size: 1.2rem;
       }
-      .hero-content button {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
+      .hero {
+        padding: 0 1rem;
+      }
+      /* Projects */
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      /* Resume & Contact */
+      .resume, .contact {
+        padding: 2rem 1rem;
+      }
+      .resume-content, .contact-form {
+        max-width: 100%;
+      }
+      /* Modal */
+      .modal-content {
+        max-width: 95%;
+        max-height: 95vh;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Header with Hamburger Menu -->
   <header>
     <nav>
       <div class="logo">SM</div>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
@@ -371,7 +380,7 @@
     </nav>
   </header>
 
-  <!-- Hero Section with Typewriter and Scroll Indicator -->
+  <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="hero-content">
       <h1>Stanley Mwangi</h1>
@@ -401,7 +410,7 @@
           </div>
         </div>
       </div>
-      <!-- Add more project cards as needed -->
+      <!-- Add more project cards here -->
     </div>
   </section>
 
@@ -409,7 +418,7 @@
   <section id="resume" class="resume">
     <div class="resume-content">
       <h2 class="section-title">Resume & Experience</h2>
-      <a href="resume/Stanley_Resume.pdf" class="resume-download" download>
+      <a href="resume/mwangi-stanley.pdf" class="resume-download" download>
         <i class="fas fa-download"></i> Download Resume
       </a>
     </div>
@@ -445,17 +454,26 @@
     </div>
   </footer>
 
-  <!-- Modal for Image Zoom -->
+  <!-- Image Modal -->
   <div class="modal" id="imageModal">
+    <span class="modal-close">&times;</span>
     <img class="modal-content" id="modalImage" alt="Full Size">
   </div>
 
-  <!-- JavaScript for Modal & Interactivity -->
+  <!-- JavaScript -->
   <script>
-    // Modal functionality for project images
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Modal functionality
     const projectImages = document.querySelectorAll('.project-img');
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
+    const modalClose = document.querySelector('.modal-close');
 
     projectImages.forEach(img => {
       img.addEventListener('click', () => {
@@ -464,14 +482,17 @@
       });
     });
 
-    // Close modal when clicking on the background only
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.classList.remove('active');
       }
     });
 
-    // Close modal when pressing the Escape key
+    modalClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      modal.classList.remove('active');
+    });
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('active')) {
         modal.classList.remove('active');
