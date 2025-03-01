@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stanley Mwangi - Portfolio</title>
-  <!-- Font Awesome for icons -->
+  <title>Nijulishe Finance Prototype</title>
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
@@ -17,7 +17,8 @@
     html {
       scroll-behavior: smooth;
     }
-    /* Reset */
+    
+    
     * {
       margin: 0;
       padding: 0;
@@ -63,7 +64,6 @@
     .nav-links a:hover {
       color: var(--primary-color);
     }
-    /* Hamburger Menu (hidden by default) */
     .hamburger {
       display: none;
       background: none;
@@ -106,7 +106,6 @@
       transform: scale(1.05);
       background-color: #f0f0f0;
     }
-    /* Scroll Indicator */
     .scroll-indicator {
       position: absolute;
       bottom: 2rem;
@@ -121,8 +120,8 @@
       40% { transform: translateY(-10px); }
       60% { transform: translateY(-5px); }
     }
-    /* Projects Section */
-    .projects {
+    /* Prototype Section */
+    .prototype {
       padding: 4rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
@@ -132,60 +131,26 @@
       margin-bottom: 3rem;
       font-size: 2rem;
     }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .project-card {
+    .prototype-content {
       background: white;
       border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
-    .project-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    .project-image {
-      width: 100%;
-      height: 300px;
-      background: #f8f9fa;
-      overflow: hidden;
-      position: relative;
-    }
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.5s ease;
-      cursor: zoom-in;
-    }
-    .project-card:hover .project-image img {
-      transform: scale(1.05);
-    }
-    .project-content {
       padding: 2rem;
-      flex-grow: 1;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
-    .project-content h3 {
+    .prototype-content h3 {
       font-size: 1.5rem;
       color: var(--text-color);
       margin-bottom: 0.5rem;
     }
-    .project-content p {
+    .prototype-content p {
       font-size: 1rem;
       line-height: 1.7;
       color: #4b5563;
     }
-    .project-tech {
+    .prototype-tech {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
@@ -198,61 +163,19 @@
       border-radius: 999px;
       font-size: 0.875rem;
     }
-    /* Image Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      justify-content: center;
-      align-items: center;
-    }
-    .modal.active {
-      display: flex;
-    }
-    .modal-content {
-      max-width: 90%;
-      max-height: 90vh;
-      object-fit: contain;
-      cursor: zoom-out;
-      border-radius: 8px;
-    }
-    .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-      z-index: 2100;
-    }
-    /* Resume Section */
-    .resume {
-      background-color: var(--light-bg);
-      padding: 4rem 2rem;
-    }
-    .resume-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .resume-download {
+    .project-download {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       background-color: var(--primary-color);
       color: white;
-      padding: 1rem 2rem;
+      padding: 0.75rem 1.5rem;
       text-decoration: none;
       border-radius: 4px;
-      margin-top: 1rem;
+      font-weight: 500;
       transition: background-color 0.3s, transform 0.3s;
     }
-    .resume-download:hover {
+    .project-download:hover {
       background-color: var(--secondary-color);
       transform: scale(1.05);
     }
@@ -296,24 +219,8 @@
       padding: 2rem;
       text-align: center;
     }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-    .social-links a {
-      color: white;
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    .social-links a:hover {
-      color: var(--primary-color);
-      transform: translateY(-2px);
-    }
     /* Mobile Adjustments */
     @media (max-width: 768px) {
-      /* Navigation */
       .hamburger {
         display: block;
       }
@@ -334,7 +241,6 @@
       .nav-links a {
         padding: 0.5rem 0;
       }
-      /* Hero */
       .hero-content h1 {
         font-size: 2rem;
       }
@@ -344,82 +250,57 @@
       .hero {
         padding: 0 1rem;
       }
-      /* Projects */
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-      /* Resume & Contact */
-      .resume, .contact {
+      .prototype {
         padding: 2rem 1rem;
       }
-      .resume-content, .contact-form {
-        max-width: 100%;
-      }
-      /* Modal */
-      .modal-content {
-        max-width: 95%;
-        max-height: 95vh;
+      .contact {
+        padding: 2rem 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header with Hamburger Menu -->
+  <!-- Header with  Navigation -->
   <header>
     <nav>
-      <div class="logo">SM</div>
+      <div class="logo">Nijulishe Finance</div>
       <button class="hamburger" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
       <div class="nav-links">
         <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#resume">Resume</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section  of Nijulishe Finance -->
   <section id="home" class="hero">
     <div class="hero-content">
-      <h1>Stanley Mwangi</h1>
-      <p><span class="typewriter">Innovative Tech Enthusiast & Creative Developer</span></p>
-      <button onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">Explore My Work</button>
+      <h1>Nijulishe Finance Prototype</h1>
+      <p>Explore the future of financial management with this prototype.</p>
+      <a href="app/app-release.apk.apk" class="project-download" download>
+        <i class="fas fa-download"></i> Download Now
+      </a>
     </div>
     <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <h2 class="section-title">My Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/project1.jpg" alt="Merry-Go-Round-App" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>Merry-Go-Round-App</h3>
-          <p>A modern mobile application designed to manage and streamline group savings and loan activities for members of the Camp Nou savings group. This Android app is built with Jetpack Compose and Firebase, offering a seamless and secure platform for managing group finances.</p>
-          <p>Key features include secure user authentication, real-time transaction tracking, automated payment reminders, and comprehensive financial reporting. The app implements Material Design 3 guidelines for an intuitive user experience.</p>
-          <div class="project-tech">
-            <span class="tech-tag">Kotlin</span>
-            <span class="tech-tag">Jetpack Compose</span>
-            <span class="tech-tag">Firebase</span>
-            <span class="tech-tag">Material Design</span>
-          </div>
-        </div>
+  <!-- Prototype Section -->
+  <section id="prototype" class="prototype">
+    <h2 class="section-title">About Nijulishe Finance Prototype</h2>
+    <div class="prototype-content">
+      <h3>Nijulishe Finance</h3>
+      <p>The Nijulishe Finance prototype is a financial management app designed to help users track expenses, set savings goals, and plan budgets effectively. This version showcases the app’s core functionality and user-friendly interface.</p>
+      <p>Built with modern tools, it offers a seamless experience for managing personal finances. Download it now to explore its features!</p>
+      <div class="prototype-tech">
+        <span class="tech-tag">Kotlin</span>
+        <span class="tech-tag">Android</span>
+        <span class="tech-tag">Jetpack Compose</span>
+        <span class="tech-tag">Firebase</span>
       </div>
-      <!-- Add more project cards here -->
-    </div>
-  </section>
-
-  <!-- Resume Section -->
-  <section id="resume" class="resume">
-    <div class="resume-content">
-      <h2 class="section-title">Resume & Experience</h2>
-      <a href="resume/mwangi-stanley.pdf" class="resume-download" download>
-        <i class="fas fa-download"></i> Download Resume
+      <a href="app/app-release.apk" class="project-download" download>
+        <i class="fas fa-download"></i> Download Prototype
       </a>
     </div>
   </section>
@@ -446,57 +327,15 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Stanley Mwangi. All rights reserved.</p>
-    <div class="social-links">
-      <a href="https://x.com/mormont_GOT" target="_blank" aria-label="X (formerly Twitter) Profile">
-        <i class="fa-brands fa-x-twitter"></i>
-      </a>
-    </div>
+    <p>© 2025 Nijulishe Finance. All rights reserved.</p>
   </footer>
-
-  <!-- Image Modal -->
-  <div class="modal" id="imageModal">
-    <span class="modal-close">&times;</span>
-    <img class="modal-content" id="modalImage" alt="Full Size">
-  </div>
 
   <!-- JavaScript -->
   <script>
-    // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
-    });
-
-    // Modal functionality
-    const projectImages = document.querySelectorAll('.project-img');
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    const modalClose = document.querySelector('.modal-close');
-
-    projectImages.forEach(img => {
-      img.addEventListener('click', () => {
-        modal.classList.add('active');
-        modalImage.src = img.src;
-      });
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-      }
-    });
-
-    modalClose.addEventListener('click', (e) => {
-      e.stopPropagation();
-      modal.classList.remove('active');
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        modal.classList.remove('active');
-      }
     });
   </script>
 </body>
