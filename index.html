@@ -3,262 +3,231 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stanley Mwangi - Portfolio</title>
-  <!-- Font Awesome for icons -->
+  <title>Nijulishe Finance - AI-Powered Financial App</title>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+ 
+  
   <style>
     :root {
-      --primary-color: #2563eb;
-      --secondary-color: #1e40af;
-      --text-color: #1f2937;
-      --light-bg: #f3f4f6;
+      --primary-color: #2563eb; /* Vibrant blue */
+      --secondary-color: #1e40af; /* Darker blue */
+      --accent-color: #10b981; /* Fresh green */
+      --text-color: #1f2937; /* Dark gray */
+      --light-bg: #f9fafb; /* Light gray background */
+      --dark-bg: #111827; /* Dark footer/prototype bg */
+      --warning-color: #fef3c7; /* Light yellow for disclaimer */
     }
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: 'Poppins', sans-serif;
       line-height: 1.6;
       color: var(--text-color);
+      background: var(--light-bg);
+      font-size: 16px;
     }
-    /* Header & Navigation */
+    /* Header Styles */
     header {
-      background-color: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       position: fixed;
       width: 100%;
-      top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
     nav {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 1rem;
+      padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 1.8rem;
+      font-weight: 700;
       color: var(--primary-color);
     }
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
     }
     .nav-links a {
       text-decoration: none;
       color: var(--text-color);
-      font-weight: 500;
-      transition: color 0.3s;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
     .nav-links a:hover {
       color: var(--primary-color);
     }
-    /* Hamburger Menu (hidden by default) */
     .hamburger {
       display: none;
       background: none;
       border: none;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       cursor: pointer;
       color: var(--text-color);
     }
     /* Hero Section */
     .hero {
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.3) 100%);
+      z-index: 1;
+    }
+    .hero-content {
       text-align: center;
       color: white;
+      z-index: 2;
+      max-width: 800px;
       padding: 0 2rem;
-      position: relative;
     }
     .hero-content h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
     }
     .hero-content p {
       font-size: 1.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
     }
-    .hero-content button {
-      background-color: white;
-      color: var(--primary-color);
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: transform 0.3s, background-color 0.3s;
-    }
-    .hero-content button:hover {
-      transform: scale(1.05);
-      background-color: #f0f0f0;
-    }
-    /* Scroll Indicator */
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 2rem;
+    .cta-btn {
+      background: var(--accent-color);
       color: white;
-      animation: bounce 2s infinite;
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-10px); }
-      60% { transform: translateY(-5px); }
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
-    /* Projects Section */
-    .projects {
-      padding: 4rem 2rem;
-      max-width: 1200px;
+    /* Features Section */
+    .features {
+      padding: 6rem 2rem;
+      max-width: 1280px;
       margin: 0 auto;
     }
     .section-title {
       text-align: center;
-      margin-bottom: 3rem;
-      font-size: 2rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 4rem;
+      color: var(--text-color);
     }
-    .project-grid {
+    .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
-    .project-card {
+    .feature-card {
       background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
-    .project-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    .project-image {
-      width: 100%;
-      height: 300px;
-      background: #f8f9fa;
-      overflow: hidden;
-      position: relative;
-    }
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.5s ease;
-      cursor: zoom-in;
-    }
-    .project-card:hover .project-image img {
-      transform: scale(1.05);
-    }
-    .project-content {
       padding: 2rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .project-content h3 {
-      font-size: 1.5rem;
-      color: var(--text-color);
-      margin-bottom: 0.5rem;
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     }
-    .project-content p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #4b5563;
-    }
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-    .tech-tag {
-      background-color: var(--light-bg);
+    .feature-card i {
+      font-size: 3rem;
       color: var(--primary-color);
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.875rem;
+      margin-bottom: 1rem;
     }
-    /* Image Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      justify-content: center;
-      align-items: center;
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
     }
-    .modal.active {
-      display: flex;
+    .feature-card p {
+      color: #6b7280;
     }
-    .modal-content {
-      max-width: 90%;
-      max-height: 90vh;
-      object-fit: contain;
-      cursor: zoom-out;
-      border-radius: 8px;
-    }
-    .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 2rem;
+    /* Prototype Section */
+    .prototype {
+      padding: 6rem 2rem;
+      background: var(--dark-bg);
       color: white;
-      cursor: pointer;
-      z-index: 2100;
     }
-    /* Resume Section */
-    .resume {
-      background-color: var(--light-bg);
-      padding: 4rem 2rem;
-    }
-    .resume-content {
-      max-width: 800px;
+    .prototype-content {
+      max-width: 1280px;
       margin: 0 auto;
       text-align: center;
     }
-    .resume-download {
+    .prototype-content p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    .project-download {
+      background: var(--accent-color);
+      color: white;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background-color: var(--primary-color);
-      color: white;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      border-radius: 4px;
-      margin-top: 1rem;
-      transition: background-color 0.3s, transform 0.3s;
+      transition: all 0.3s ease;
     }
-    .resume-download:hover {
-      background-color: var(--secondary-color);
-      transform: scale(1.05);
+    .project-download:hover {
+      background: var(--primary-color);
+      transform: translateY(-5px);
+    }
+    .disclaimer {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: var(--warning-color);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .disclaimer i {
+      color: #d97706;
+      font-size: 1.5rem;
+    }
+    .disclaimer p {
+      margin: 0;
+      color: #92400e;
+      font-size: 0.9rem;
     }
     /* Contact Section */
     .contact {
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
       max-width: 600px;
       margin: 0 auto;
     }
@@ -266,115 +235,89 @@
       display: grid;
       gap: 1.5rem;
     }
-    .form-group {
-      display: grid;
-      gap: 0.5rem;
+    .form-group input,
+    .form-group textarea {
+      padding: 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      width: 100%;
     }
-    input, textarea {
-      padding: 0.75rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-family: inherit;
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary-color);
+      outline: none;
     }
-    button {
-      background-color: var(--primary-color);
+    button[type="submit"] {
+      background: var(--primary-color);
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 1rem;
       border: none;
-      border-radius: 4px;
+      border-radius: 8px;
+      font-weight: 600;
       cursor: pointer;
-      font-weight: 500;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
-    button:hover {
-      background-color: var(--secondary-color);
+    button[type="submit"]:hover {
+      background: var(--secondary-color);
+      transform: translateY(-3px);
     }
     /* Footer */
     footer {
-      background-color: var(--text-color);
+      background: var(--dark-bg);
       color: white;
-      padding: 2rem;
+      padding: 3rem 2rem;
       text-align: center;
     }
-    .social-links {
+    .footer-links {
+      margin-top: 1rem;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      margin-top: 1.5rem;
     }
-    .social-links a {
+    .footer-links a {
       color: white;
       font-size: 1.5rem;
-      transition: all 0.3s ease;
+      transition: color 0.3s ease;
     }
-    .social-links a:hover {
-      color: var(--primary-color);
-      transform: translateY(-2px);
+    .footer-links a:hover {
+      color: var(--accent-color);
     }
-    /* Mobile Adjustments */
+    /* Responsive Styles */
     @media (max-width: 768px) {
-      /* Navigation */
-      .hamburger {
-        display: block;
-      }
+      .hamburger { display: block; }
       .nav-links {
         display: none;
-        flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: white;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        background: white;
         padding: 1rem;
+        flex-direction: column;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
-      .nav-links.active {
-        display: flex;
-      }
-      .nav-links a {
-        padding: 0.5rem 0;
-      }
-      /* Hero */
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-      .hero-content p {
-        font-size: 1.2rem;
-      }
-      .hero {
-        padding: 0 1rem;
-      }
-      /* Projects */
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-      /* Resume & Contact */
-      .resume, .contact {
-        padding: 2rem 1rem;
-      }
-      .resume-content, .contact-form {
-        max-width: 100%;
-      }
-      /* Modal */
-      .modal-content {
-        max-width: 95%;
-        max-height: 95vh;
-      }
+      .nav-links.active { display: flex; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .hero-content p { font-size: 1.2rem; }
+      .features, .prototype, .contact { padding: 4rem 1rem; }
+      .disclaimer { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <!-- Header with Hamburger Menu -->
+  <!-- Header -->
   <header>
     <nav>
-      <div class="logo">SM</div>
+      <div class="logo">Nijulishe Finance</div>
       <button class="hamburger" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
       <div class="nav-links">
         <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#resume">Resume</a>
+        <a href="#features">Features</a>
+        <a href="#prototype">Prototype</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -383,44 +326,51 @@
   <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="hero-content">
-      <h1>Stanley Mwangi</h1>
-      <p><span class="typewriter">Innovative Tech Enthusiast & Creative Developer</span></p>
-      <button onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">Explore My Work</button>
+      <h1>AI-Powered Financial Freedom</h1>
+      <p>Explore Nijulishe Finance – your smart companion for managing money with cutting-edge AI. Download our Android prototype today!</p>
+      <a href="app/app-release.apk" class="cta-btn" download>Download Now</a>
     </div>
-    <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <h2 class="section-title">My Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/project1.jpg" alt="Merry-Go-Round-App" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>Merry-Go-Round-App</h3>
-          <p>A modern mobile application designed to manage and streamline group savings and loan activities for members of the Camp Nou savings group. This Android app is built with Jetpack Compose and Firebase, offering a seamless and secure platform for managing group finances.</p>
-          <p>Key features include secure user authentication, real-time transaction tracking, automated payment reminders, and comprehensive financial reporting. The app implements Material Design 3 guidelines for an intuitive user experience.</p>
-          <div class="project-tech">
-            <span class="tech-tag">Kotlin</span>
-            <span class="tech-tag">Jetpack Compose</span>
-            <span class="tech-tag">Firebase</span>
-            <span class="tech-tag">Material Design</span>
-          </div>
-        </div>
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h2 class="section-title">Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <i class="fas fa-robot"></i>
+        <h3>AI Investment Advisor</h3>
+        <p>Receive personalized investment recommendations based on AI-analyzed market trends.</p>
       </div>
-      <!-- Add more project cards here -->
+      <div class="feature-card">
+        <i class="fas fa-book"></i>
+        <h3>Bookkeeping</h3>
+        <p>Track income and expenses effortlessly with an intuitive ledger system.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-credit-card"></i>
+        <h3>AI Credit Advisor</h3>
+        <p>Get insights into your credit score and AI-driven financial stability advice.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-newspaper"></i>
+        <h3>AI News Analyst</h3>
+        <p>Stay informed with AI-summarized financial news and economic impact analysis.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Resume Section -->
-  <section id="resume" class="resume">
-    <div class="resume-content">
-      <h2 class="section-title">Resume & Experience</h2>
-      <a href="resume/mwangi-stanley.pdf" class="resume-download" download>
-        <i class="fas fa-download"></i> Download Resume
+  <!-- Prototype Section with Disclaimer -->
+  <section id="prototype" class="prototype">
+    <div class="prototype-content">
+      <h2 class="section-title">Try the Prototype</h2>
+      <p>Experience the future of finance with our Android app prototype, built with Kotlin, Jetpack Compose, and Firebase. Showcased at the 2025 Summit.</p>
+      <a href="app/app-release.apk" class="project-download" download>
+        <i class="fas fa-download"></i> Download Now
       </a>
+      <div class="disclaimer">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p><strong>Disclaimer:</strong> This is a prototype for demonstration purposes only. Features such as news, investments, and credit ratings are hardcoded and not based on real-time data. Not intended for commercial use.</p>
+      </div>
     </div>
   </section>
 
@@ -429,16 +379,13 @@
     <h2 class="section-title">Get in Touch</h2>
     <form class="contact-form" action="https://formspree.io/f/xovjpdzn" method="POST">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
       </div>
       <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
       </div>
       <button type="submit">Send Message</button>
     </form>
@@ -446,57 +393,16 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Stanley Mwangi. All rights reserved.</p>
-    <div class="social-links">
-      <a href="https://x.com/mormont_GOT" target="_blank" aria-label="X (formerly Twitter) Profile">
-        <i class="fa-brands fa-x-twitter"></i>
-      </a>
-    </div>
+    <p>© 2025 Nijulishe Finance. All rights reserved.</p>
+    
   </footer>
 
-  <!-- Image Modal -->
-  <div class="modal" id="imageModal">
-    <span class="modal-close">&times;</span>
-    <img class="modal-content" id="modalImage" alt="Full Size">
-  </div>
-
-  <!-- JavaScript -->
+  <!-- Hamburger Menu -->
   <script>
-    // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
-    });
-
-    // Modal functionality
-    const projectImages = document.querySelectorAll('.project-img');
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    const modalClose = document.querySelector('.modal-close');
-
-    projectImages.forEach(img => {
-      img.addEventListener('click', () => {
-        modal.classList.add('active');
-        modalImage.src = img.src;
-      });
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-      }
-    });
-
-    modalClose.addEventListener('click', (e) => {
-      e.stopPropagation();
-      modal.classList.remove('active');
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        modal.classList.remove('active');
-      }
     });
   </script>
 </body>
