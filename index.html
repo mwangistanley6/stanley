@@ -9,16 +9,14 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
  
-  
   <style>
     :root {
-      --primary-color: #2563eb; /* Vibrant blue */
-      --secondary-color: #1e40af; /* Darker blue */
-      --accent-color: #10b981; /* Fresh green */
-      --text-color: #1f2937; /* Dark gray */
-      --light-bg: #f9fafb; /* Light gray background */
-      --dark-bg: #111827; /* Dark footer/prototype bg */
-      --warning-color: #fef3c7; /* Light yellow for disclaimer */
+      --background-color: #121212; 
+      --card-bg: #1e1e1e; 
+      --text-color: #e0e0e0; 
+      --primary-color: #ffffff; 
+      --accent-color: #10b981; 
+      --warning-color: #fef3c7;
     }
     * {
       margin: 0;
@@ -32,12 +30,12 @@
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
       color: var(--text-color);
-      background: var(--light-bg);
+      background: var(--background-color);
       font-size: 16px;
     }
     /* Header Styles */
     header {
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(18, 18, 18, 0.95);
       backdrop-filter: blur(10px);
       position: fixed;
       width: 100%;
@@ -68,7 +66,7 @@
       transition: color 0.3s ease;
     }
     .nav-links a:hover {
-      color: var(--primary-color);
+      color: var(--accent-color);
     }
     .hamburger {
       display: none;
@@ -84,7 +82,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
       position: relative;
       overflow: hidden;
     }
@@ -93,7 +91,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.3) 100%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
       z-index: 1;
     }
     .hero-content {
@@ -135,13 +133,14 @@
       padding: 6rem 2rem;
       max-width: 1280px;
       margin: 0 auto;
+      background: var(--background-color);
     }
     .section-title {
       text-align: center;
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 4rem;
-      color: var(--text-color);
+      color: var(--primary-color);
     }
     .feature-grid {
       display: grid;
@@ -149,12 +148,13 @@
       gap: 2rem;
     }
     .feature-card {
-      background: white;
+      background: var(--card-bg);
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: var(--text-color);
     }
     .feature-card:hover {
       transform: translateY(-10px);
@@ -168,15 +168,16 @@
     .feature-card h3 {
       font-size: 1.5rem;
       margin-bottom: 0.75rem;
+      color: var(--primary-color);
     }
     .feature-card p {
-      color: #6b7280;
+      color: var(--text-color);
     }
     /* Prototype Section */
     .prototype {
       padding: 6rem 2rem;
-      background: var(--dark-bg);
-      color: white;
+      background: var(--background-color);
+      color: var(--text-color);
     }
     .prototype-content {
       max-width: 1280px;
@@ -201,13 +202,14 @@
       transition: all 0.3s ease;
     }
     .project-download:hover {
-      background: var(--primary-color);
       transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
     .disclaimer {
       margin-top: 2rem;
       padding: 1rem;
-      background: var(--warning-color);
+      background: rgba(254, 243, 199, 0.1);
+      border: 1px solid var(--warning-color);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -215,14 +217,15 @@
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      color: var(--warning-color);
     }
     .disclaimer i {
-      color: #d97706;
+      color: var(--warning-color);
       font-size: 1.5rem;
     }
     .disclaimer p {
       margin: 0;
-      color: #92400e;
+      color: var(--warning-color);
       font-size: 0.9rem;
     }
     /* Contact Section */
@@ -230,6 +233,7 @@
       padding: 6rem 2rem;
       max-width: 600px;
       margin: 0 auto;
+      background: var(--background-color);
     }
     .contact-form {
       display: grid;
@@ -238,35 +242,41 @@
     .form-group input,
     .form-group textarea {
       padding: 1rem;
-      border: 1px solid #e5e7eb;
+      border: 1px solid #333333;
       border-radius: 8px;
       font-size: 1rem;
+      background: var(--card-bg);
+      color: var(--text-color);
       transition: border-color 0.3s ease;
       width: 100%;
     }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #888888;
+    }
     .form-group input:focus,
     .form-group textarea:focus {
-      border-color: var(--primary-color);
+      border-color: var(--accent-color);
       outline: none;
     }
     button[type="submit"] {
-      background: var(--primary-color);
+      background: var(--accent-color);
       color: white;
       padding: 1rem;
       border: none;
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     button[type="submit"]:hover {
-      background: var(--secondary-color);
       transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
     /* Footer */
     footer {
-      background: var(--dark-bg);
-      color: white;
+      background: var(--background-color);
+      color: var(--text-color);
       padding: 3rem 2rem;
       text-align: center;
     }
@@ -277,7 +287,7 @@
       gap: 2rem;
     }
     .footer-links a {
-      color: white;
+      color: var(--text-color);
       font-size: 1.5rem;
       transition: color 0.3s ease;
     }
@@ -293,7 +303,7 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background: white;
+        background: var(--background-color);
         padding: 1rem;
         flex-direction: column;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -397,7 +407,7 @@
     
   </footer>
 
-  <!-- Hamburger Menu -->
+  <!-- Hamburger Menu Script -->
   <script>
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
