@@ -3,20 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nijulishe Finance - AI-Powered Financial App for managing money with cutting-edge AI technology.">
   <title>Nijulishe Finance - AI-Powered Financial App</title>
   
+  <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
- 
+  <!-- Google Fonts: Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --background-color: #121212; 
-      --card-bg: #1e1e1e; 
-      --text-color: #e0e0e0; 
-      --primary-color: #ffffff; 
-      --accent-color: #10b981; 
-      --warning-color: #fef3c7;
+      --background-color: #000000;       
+      --card-bg: #222222;               
+      --text-color: #ffffff;            
+      --primary-color: #ffffff;         
+      --accent-color: #cccccc;          
+      --warning-color: #ff0000;        
+      --warning-bg: #FFCCCC;            
+      --accent-blue: #007BFF;          
+      --accent-blue-hover: #3395FF;    
+      --button-bg: var(--accent-blue); 
+      --button-text: #ffffff;           
+      --button-hover-bg: var(--accent-blue-hover);
+      --border-color: #666666;          
     }
     * {
       margin: 0;
@@ -27,46 +37,42 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 1.6;
       color: var(--text-color);
       background: var(--background-color);
       font-size: 16px;
     }
+
     /* Header Styles */
     header {
-      background: rgba(18, 18, 18, 0.95);
-      backdrop-filter: blur(10px);
+      background: var(--background-color);
+      border-bottom: 2px solid var(--primary-color);
       position: fixed;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     nav {
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 1.5rem 2rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary-color);
-    }
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
     }
     .nav-links a {
       text-decoration: none;
-      color: var(--text-color);
-      font-weight: 600;
+      color: var(--accent-blue);
+      font-weight: 500;
       transition: color 0.3s ease;
     }
     .nav-links a:hover {
-      color: var(--accent-color);
+      color: var(--accent-blue-hover);
     }
     .hamburger {
       display: none;
@@ -74,73 +80,61 @@
       border: none;
       font-size: 1.8rem;
       cursor: pointer;
-      color: var(--text-color);
+      color: var(--accent-blue);
     }
+
     /* Hero Section */
     .hero {
-      height: 100vh;
+      height: 80vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
-      z-index: 1;
+      background: var(--background-color);
+      text-align: center;
     }
     .hero-content {
-      text-align: center;
-      color: white;
-      z-index: 2;
       max-width: 800px;
       padding: 0 2rem;
     }
     .hero-content h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 700;
+      color: var(--primary-color);
       margin-bottom: 1.5rem;
-      line-height: 1.2;
     }
     .hero-content p {
-      font-size: 1.5rem;
-      margin-bottom: 2.5rem;
-      opacity: 0.9;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
     }
     .cta-btn {
-      background: var(--accent-color);
-      color: white;
+      background: var(--button-bg);
+      color: var(--button-text);
       padding: 1rem 2.5rem;
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-size: 1.1rem;
+      font-weight: 500;
       border: none;
-      border-radius: 50px;
+      border-radius: 5px;
       text-decoration: none;
       display: inline-block;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
     .cta-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background: var(--button-hover-bg);
+      transform: translateY(-3px);
     }
+
     /* Features Section */
     .features {
-      padding: 6rem 2rem;
-      max-width: 1280px;
+      padding: 4rem 2rem;
+      max-width: 1200px;
       margin: 0 auto;
-      background: var(--background-color);
     }
     .section-title {
       text-align: center;
       font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 4rem;
-      color: var(--primary-color);
+      color: var(--accent-blue);
+      margin-bottom: 3rem;
     }
     .feature-grid {
       display: grid;
@@ -150,90 +144,86 @@
     .feature-card {
       background: var(--card-bg);
       padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      color: var(--text-color);
+      border-top: 4px solid var(--accent-blue);
     }
     .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
     .feature-card i {
-      font-size: 3rem;
-      color: var(--primary-color);
+      font-size: 2.5rem;
+      color: var(--accent-blue);
       margin-bottom: 1rem;
     }
     .feature-card h3 {
       font-size: 1.5rem;
-      margin-bottom: 0.75rem;
       color: var(--primary-color);
+      margin-bottom: 0.75rem;
     }
-    .feature-card p {
-      color: var(--text-color);
-    }
+
     /* Prototype Section */
     .prototype {
-      padding: 6rem 2rem;
-      background: var(--background-color);
-      color: var(--text-color);
+      padding: 4rem 2rem;
     }
     .prototype-content {
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 0 auto;
       text-align: center;
     }
     .prototype-content p {
-      font-size: 1.2rem;
-      opacity: 0.9;
+      font-size: 1.1rem;
       margin-bottom: 2rem;
     }
     .project-download {
-      background: var(--accent-color);
-      color: white;
+      background: var(--button-bg);
+      color: var(--button-text);
       padding: 1rem 2rem;
-      font-weight: 600;
+      font-size: 1.1rem;
+      font-weight: 500;
       text-decoration: none;
-      border-radius: 50px;
+      border-radius: 5px;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      transition: all 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
     .project-download:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background: var(--button-hover-bg);
+      transform: translateY(-3px);
     }
     .disclaimer {
       margin-top: 2rem;
       padding: 1rem;
-      background: rgba(254, 243, 199, 0.1);
+      background: var(--warning-bg);
       border: 1px solid var(--warning-color);
-      border-radius: 8px;
+      border-radius: 5px;
       display: flex;
       align-items: center;
       gap: 1rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
-      color: var(--warning-color);
+      color: #000000;
     }
     .disclaimer i {
-      color: var(--warning-color);
       font-size: 1.5rem;
+      color: var(--warning-color);
     }
     .disclaimer p {
-      margin: 0;
-      color: var(--warning-color);
       font-size: 0.9rem;
+      margin: 0;
+      color: #000000;
     }
+
     /* Contact Section */
     .contact {
-      padding: 6rem 2rem;
+      padding: 4rem 2rem;
       max-width: 600px;
       margin: 0 auto;
-      background: var(--background-color);
     }
     .contact-form {
       display: grid;
@@ -242,58 +232,74 @@
     .form-group input,
     .form-group textarea {
       padding: 1rem;
-      border: 1px solid #333333;
-      border-radius: 8px;
-      font-size: 1rem;
-      background: var(--card-bg);
+      background: var(--background-color);
       color: var(--text-color);
-      transition: border-color 0.3s ease;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      font-size: 1rem;
       width: 100%;
-    }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #888888;
     }
     .form-group input:focus,
     .form-group textarea:focus {
-      border-color: var(--accent-color);
+      border-color: var(--accent-blue);
       outline: none;
     }
     button[type="submit"] {
-      background: var(--accent-color);
-      color: white;
+      background: var(--button-bg);
+      color: var(--button-text);
       padding: 1rem;
       border: none;
-      border-radius: 8px;
-      font-weight: 600;
+      border-radius: 5px;
+      font-weight: 500;
       cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
     button[type="submit"]:hover {
+      background: var(--button-hover-bg);
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
+
     /* Footer */
     footer {
-      background: var(--background-color);
-      color: var(--text-color);
-      padding: 3rem 2rem;
+      padding: 2rem;
       text-align: center;
+      border-top: 1px solid var(--border-color);
     }
     .footer-links {
       margin-top: 1rem;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
     }
     .footer-links a {
-      color: var(--text-color);
-      font-size: 1.5rem;
+      color: var(--accent-blue);
+      font-size: 1.2rem;
       transition: color 0.3s ease;
     }
     .footer-links a:hover {
-      color: var(--accent-color);
+      color: var(--accent-blue-hover);
     }
+
+    /* Back to Top Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+      transition: background 0.3s ease;
+    }
+    #back-to-top:hover {
+      background: var(--button-hover-bg);
+    }
+
     /* Responsive Styles */
     @media (max-width: 768px) {
       .hamburger { display: block; }
@@ -310,8 +316,8 @@
       }
       .nav-links.active { display: flex; }
       .hero-content h1 { font-size: 2.5rem; }
-      .hero-content p { font-size: 1.2rem; }
-      .features, .prototype, .contact { padding: 4rem 1rem; }
+      .hero-content p { font-size: 1.1rem; }
+      .features, .prototype, .contact { padding: 3rem 1rem; }
       .disclaimer { flex-direction: column; text-align: center; }
     }
   </style>
@@ -320,7 +326,6 @@
   <!-- Header -->
   <header>
     <nav>
-      <div class="logo">Nijulishe Finance</div>
       <button class="hamburger" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
@@ -347,7 +352,7 @@
     <h2 class="section-title">Key Features</h2>
     <div class="feature-grid">
       <div class="feature-card">
-        <i class="fas fa-robot"></i>
+        <i class="fas fa-chart-line"></i>
         <h3>AI Investment Advisor</h3>
         <p>Receive personalized investment recommendations based on AI-analyzed market trends.</p>
       </div>
@@ -369,17 +374,17 @@
     </div>
   </section>
 
-  <!-- Prototype Section with Disclaimer -->
+  <!-- Prototype Section -->
   <section id="prototype" class="prototype">
     <div class="prototype-content">
       <h2 class="section-title">Try the Prototype</h2>
-      <p>Experience the future of finance with our Android app prototype, built with Kotlin, Jetpack Compose, and Firebase. Showcased at the 2025 Summit.</p>
+      <p>Experience the future of finance with our Android app prototype, built with Kotlin, Jetpack Compose, and Firebase.</p>
       <a href="app/app-release.apk" class="project-download" download>
         <i class="fas fa-download"></i> Download Now
       </a>
       <div class="disclaimer">
         <i class="fas fa-exclamation-triangle"></i>
-        <p><strong>Disclaimer:</strong> This is a prototype for demonstration purposes only. Features such as news, investments, and credit ratings are hardcoded and not based on real-time data. Not intended for commercial use.</p>
+        <p><strong>Disclaimer:</strong> This is a prototype for demonstration purposes only. Features are hardcoded and not real-time.</p>
       </div>
     </div>
   </section>
@@ -389,13 +394,13 @@
     <h2 class="section-title">Get in Touch</h2>
     <form class="contact-form" action="https://formspree.io/f/xovjpdzn" method="POST">
       <div class="form-group">
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="text" name="name" placeholder="Your Name" required>
       </div>
       <div class="form-group">
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <input type="email" name="email" placeholder="Your Email" required>
       </div>
       <div class="form-group">
-        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       </div>
       <button type="submit">Send Message</button>
     </form>
@@ -403,16 +408,43 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Nijulishe Finance. All rights reserved.</p>
-    
+    <p>Page Last Updated: Mar 20, 2025</p>
+    <p>Page Editor: Mwangi Stanley</p>
   </footer>
 
-  <!-- Hamburger Menu Script -->
+  <!-- Back to Top Button -->
+  <button id="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- JavaScript -->
   <script>
+    // Hamburger Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
+    });
+
+    // Smooth Scrolling
+    const scrollLinks = document.querySelectorAll('.nav-links a');
+    scrollLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        window.scrollTo({
+          top: targetSection.offsetTop - 70,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 </body>
